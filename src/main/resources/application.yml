@@ -1,4 +1,6 @@
 spring:
+  jwt:
+    secret: test
   devtools:
     livereload:
       enabled: true
