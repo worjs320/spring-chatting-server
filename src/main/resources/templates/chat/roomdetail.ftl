@@ -21,7 +21,7 @@
             <h3>{{roomName}}</h3>
         </div>
         <div class="col-md-6 text-right">
-            <a class="btn btn-primary btn-sm" href="/logout">로그아웃</a>
+            <button class="btn btn-primary btn-sm" @click="logout()">로그아웃</button>
         </div>
     </div>
     <div class="input-group">
@@ -84,6 +84,11 @@
             },
             recvMessage: function(recv) {
                 this.messages.unshift({"type":recv.type,"sender":recv.sender,"message":recv.message})
+            },
+            logout: function() {
+                ws.disconnect(function() {
+                    location.href="/logout";
+                })
             }
         }
     });
