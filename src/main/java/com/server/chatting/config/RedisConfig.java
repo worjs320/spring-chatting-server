@@ -2,6 +2,7 @@ package com.server.chatting.config;
 
 import com.server.chatting.pubsub.RedisSubscriber;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
