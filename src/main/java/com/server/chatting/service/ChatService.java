@@ -1,6 +1,6 @@
 package com.server.chatting.service;
 
-import com.server.chatting.chat.ChatMessage;
+import com.server.chatting.model.ChatMessage;
 import com.server.chatting.repo.ChatRoomRepository;
 import lombok.RequiredArgsConstructor;
 

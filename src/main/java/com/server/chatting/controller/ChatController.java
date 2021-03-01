@@ -1,6 +1,6 @@
 package com.server.chatting.controller;
 
-import com.server.chatting.chat.ChatMessage;
+import com.server.chatting.model.ChatMessage;
 import com.server.chatting.repo.ChatRoomRepository;
 import com.server.chatting.service.ChatService;
 import com.server.chatting.service.JwtTokenProvider;

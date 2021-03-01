@@ -1,15 +1,17 @@
 package com.server.chatting.repo;
 
-import com.server.chatting.chat.ChatRoom;
+import com.server.chatting.model.ChatRoom;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.redis.core.HashOperations;
 import org.springframework.data.redis.core.ValueOperations;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
+
 import javax.annotation.Resource;
-import java.util.*;
+import java.util.List;
+import java.util.Optional;
 
 @RequiredArgsConstructor
-@Repository
+@Service
 public class ChatRoomRepository {
     // Redis CacheKeys
     private static final String CHAT_ROOMS = "CHAT_ROOM"; // 채팅룸 저장
@@ -43,7 +45,6 @@ public class ChatRoomRepository {
     // 유저가 입장한 채팅방ID와 유저 세션ID 맵핑 정보 저장
     public void setUserEnterInfo(String sessionId, String roomId) {
         hashOpsEnterInfo.put(ENTER_INFO, sessionId, roomId);
-        valueOps.set(USER_COUNT + "_" + roomId,"1");
     }
 
     // 유저 세션으로 입장해 있는 채팅방 ID 조회
@@ -58,13 +59,11 @@ public class ChatRoomRepository {
 
     // 채팅방 유저수 조회
     public long getUserCount(String roomId) {
-        return Long.valueOf(Optional.ofNullable(valueOps.get(USER_COUNT + "_" + roomId)).orElse("0L"));
+        return Long.valueOf(Optional.ofNullable(valueOps.get(USER_COUNT + "_" + roomId)).orElse("0"));
     }
 
     // 채팅방에 입장한 유저수 +1
     public long plusUserCount(String roomId) {
-        System.out.println("TESTT");
-        System.out.println(valueOps.get(USER_COUNT + "_" + roomId));
         return Optional.ofNullable(valueOps.increment(USER_COUNT + "_" + roomId)).orElse(0L);
     }
 

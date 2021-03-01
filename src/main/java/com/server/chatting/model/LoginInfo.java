@@ -1,4 +1,4 @@
-package com.server.chatting.service;
+package com.server.chatting.model;
 
 import lombok.Builder;
 import lombok.Getter;

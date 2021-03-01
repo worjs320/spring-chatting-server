@@ -1,4 +1,4 @@
-package com.server.chatting.socket;
+package com.server.chatting.config;
 
 import com.server.chatting.handler.StompHandler;
 import lombok.RequiredArgsConstructor;

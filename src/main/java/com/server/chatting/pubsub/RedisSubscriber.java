@@ -1,7 +1,7 @@
 package com.server.chatting.pubsub;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.server.chatting.chat.ChatMessage;
+import com.server.chatting.model.ChatMessage;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.connection.Message;

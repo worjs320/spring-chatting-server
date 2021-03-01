@@ -1,9 +1,9 @@
 package com.server.chatting.controller;
 
-import com.server.chatting.chat.ChatRoom;
+import com.server.chatting.model.ChatRoom;
 import com.server.chatting.repo.ChatRoomRepository;
 import com.server.chatting.service.JwtTokenProvider;
-import com.server.chatting.service.LoginInfo;
+import com.server.chatting.model.LoginInfo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -31,7 +31,7 @@ public class ChatRoomController {
     @ResponseBody
     public List<ChatRoom> room() {
         List<ChatRoom> chatRooms = chatRoomRepository.findAllRoom();
-//        chatRooms.stream().forEach(room -> room.setUserCount(chatRoomRepository.getUserCount(room.getRoomId())));
+        chatRooms.forEach(room -> room.setUserCount(chatRoomRepository.getUserCount(room.getRoomId())));
         return chatRooms;
     }
 
