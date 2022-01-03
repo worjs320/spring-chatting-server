@@ -1,14 +1,15 @@
 spring:
-  jwt:
-    secret: test
+  profiles:
+    include: local
   devtools:
     livereload:
       enabled: true
     restart:
-      enabled: false
+      enabled: true
+    add-properties: false
   freemarker:
     cache: false
     template-loader-path: classpath:/templates/
     suffix: .ftl
-  profiles:
-    active: local
+  jwt:
+    secret: test
